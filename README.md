@@ -1,4 +1,4 @@
-# Keren Wang'ombe — Portfolio
+# Kendi Mercy — Portfolio
 
 **Operations · Systems · Analytics** — a calm, premium, substantive
 personal-brand site built with Next.js (App Router), TypeScript, and Tailwind CSS.

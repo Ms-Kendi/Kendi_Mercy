@@ -58,7 +58,7 @@ export default function InquiryForm({
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (submitting) return;
+    if (submitting || !formSubmitAlias) return;
     setError(false);
     setSubmitting(true);
 
@@ -82,7 +82,7 @@ export default function InquiryForm({
     }
   }
 
-  if (done) {
+  if (!formSubmitAlias) {\n    return <p className={`text-body ${dark ? "text-paper/80" : "text-ink"}`} role="status">Online inquiries will be available once Kendi Mercy’s contact email is configured.</p>;\n  }\n\n  if (done) {
     return (
       <p
         className={`text-body ${dark ? "text-amber" : "text-signature"}`}

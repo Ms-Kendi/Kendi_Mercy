@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "How this site collects, uses, and protects your personal information, under the NDPR and, where applicable, the GDPR.",
 };
 
-const SITE_URL = "kerenwangombe.com";
+const SITE_URL = "Kendi Mercy portfolio";
 const LAST_UPDATED = "1 July 2026";
 
 const linkCls = "text-link underline underline-offset-2";
@@ -286,9 +286,11 @@ export default function PrivacyPage() {
               {SITE_URL}
               <br />
               Email:{" "}
-              <a href={`mailto:${privacyEmail}`} className={linkCls}>
-                {privacyEmail}
-              </a>
+              {privacyEmail ? (
+                <a href={`mailto:${privacyEmail}`} className={linkCls}>{privacyEmail}</a>
+              ) : (
+                <a href="/contact" className={linkCls}>Contact Kendi Mercy</a>
+              )}
               <br />
               Location: Kenya
             </p>

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "The terms that govern your access to and use of this site, its content, submissions, and services.",
 };
 
-const SITE_URL = "kerenwangombe.com";
+const SITE_URL = "Kendi Mercy portfolio";
 const LAST_UPDATED = "1 July 2026";
 
 const linkCls = "text-link underline underline-offset-2";
@@ -330,9 +330,11 @@ export default function TermsPage() {
               {SITE_URL}
               <br />
               Email:{" "}
-              <a href={`mailto:${contactEmail}`} className={linkCls}>
-                {contactEmail}
-              </a>
+              {contactEmail ? (
+                <a href={`mailto:${contactEmail}`} className={linkCls}>{contactEmail}</a>
+              ) : (
+                <a href="/contact" className={linkCls}>Contact Kendi Mercy</a>
+              )}
               <br />
               Location: Kenya
             </p>

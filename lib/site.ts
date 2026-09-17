@@ -4,7 +4,7 @@
  */
 
 export const brand = {
-  name: "Keren Wang'ombe",
+  name: "Kendi Mercy",
   byline: "Operations · Systems · Analytics",
   oneLine:
     "I turn operational chaos into scalable systems, messy cohort data, manual workflows, and scattered pipelines into automation that runs itself.",
@@ -30,7 +30,7 @@ export const pageBanners = {
 export const bannerSrc = pageBanners.home;
 
 /** About-page portrait (drop a web-optimized 4:5 JPEG over this path). */
-export const aboutPortrait = "/portraits/keren.svg";
+export const aboutPortrait = "/portraits/kendi-mercy.svg";
 
 export type NavItem = {
   href: string;
@@ -60,20 +60,20 @@ export const nav: NavItem[] = [
 ];
 
 /** Primary contact email, shown for general inquiries and booking. */
-export const contactEmail = "kerenwangombe@gmail.com";
+export const contactEmail = "";
 
 /** Contact email for privacy-specific requests (Privacy + Cookie policies). */
-export const privacyEmail = "kerenwangombe@gmail.com";
+export const privacyEmail = "";
 
 /**
  * Destination the contact/inquiry forms submit to. The form UI validates and
  * reflects state but does not POST yet (see the TODO(integration) handlers);
  * wire this to a provider (FormSubmit, Supabase, email, CRM) at launch.
  */
-export const formSubmitAlias = "kerenwangombe@gmail.com";
+export const formSubmitAlias = "";
 
 export const social = {
-  linkedin: "https://www.linkedin.com/in/keren-wangombe/",
-  github: "https://github.com/Kerenyambura",
-  medium: "https://medium.com/@nyamburawangombe",
+  linkedin: "",
+  github: "https://github.com/Ms-Kendi",
+  medium: "",
 } as const;

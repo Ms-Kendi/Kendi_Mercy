@@ -26,6 +26,7 @@ export default function Footer() {
           <div>
             <h2 className="kicker text-paper/55">Elsewhere</h2>
             <ul className="mt-5 space-y-3 text-body">
+              {social.linkedin ? (
               <li>
                 <a
                   href={social.linkedin}
@@ -36,6 +37,7 @@ export default function Footer() {
                   LinkedIn
                 </a>
               </li>
+              ) : null}
               <li>
                 <a
                   href={social.github}
@@ -46,6 +48,7 @@ export default function Footer() {
                   GitHub
                 </a>
               </li>
+              {social.medium ? (
               <li>
                 <a
                   href={social.medium}
@@ -56,6 +59,7 @@ export default function Footer() {
                   Medium
                 </a>
               </li>
+              ) : null}
             </ul>
             <p className="mt-5 text-small text-paper/45">
               Case studies, write-ups, and the systems behind the work.

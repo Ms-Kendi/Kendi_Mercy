@@ -1,5 +1,5 @@
 /**
- * Content scaffolding for Keren Wang'ombe's portfolio.
+ * Content scaffolding for Kendi Mercy's portfolio.
  *
  * This is a clear SEAM for later integration: case studies, resources, and
  * metrics can move to a CMS / Supabase / R2. The UI reads from these typed
@@ -141,7 +141,7 @@ export const tiers: Tier[] = [
 export const workClose =
   "These systems started as operational problems. If you have one, let's talk.";
 
-/** Trusted-by band on the home page (organisations Keren has worked with). */
+/** Trusted-by band on the home page (organisations Kendi has worked with). */
 export const organisations: string[] = [
   "ALX Africa",
   "OpenStreetMap Kenya",
@@ -408,7 +408,7 @@ export const bios: BioLength[] = [
   },
   {
     label: "Press (long)",
-    text: "Keren Wang'ombe is a Programme Operations Associate at ALX Africa, where she builds the automation, tracking, and reporting systems behind learner programmes reaching thousands of people across 8+ African countries. Her work turns operational complexity into repeatable execution: a self-updating health tracker holding 98% data accuracy across 12 countries, automation that cut manual tracking work by 50% and saved 15+ hours a week, and executive reporting that carried Cybersecurity Cohort 11 from 2,032 registrations to 900 graduates at an 86% graduation rate. Alongside operations she keeps a hands-on analytics practice, SQL, Excel, and Power BI, used to surface SLA breaches, segment customers, and audit data integrity, and a GIS and open-mapping background that shows up wherever data meets geography. She works at the seam of operations and analytics, two disciplines that share one question: how do we make this run better?",
+    text: "Kendi Mercy is a Programme Operations Associate at ALX Africa, where she builds the automation, tracking, and reporting systems behind learner programmes reaching thousands of people across 8+ African countries. Her work turns operational complexity into repeatable execution: a self-updating health tracker holding 98% data accuracy across 12 countries, automation that cut manual tracking work by 50% and saved 15+ hours a week, and executive reporting that carried Cybersecurity Cohort 11 from 2,032 registrations to 900 graduates at an 86% graduation rate. Alongside operations she keeps a hands-on analytics practice, SQL, Excel, and Power BI, used to surface SLA breaches, segment customers, and audit data integrity, and a GIS and open-mapping background that shows up wherever data meets geography. She works at the seam of operations and analytics, two disciplines that share one question: how do we make this run better?",
   },
 ];
 

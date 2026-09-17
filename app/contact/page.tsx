@@ -33,28 +33,32 @@ export default function ContactPage() {
               a sentence on the situation and the outcome is the most helpful start.
             </p>
             <div className="mt-8 space-y-3 text-body">
+              {social.linkedin ? (
               <p>
                 <a href={social.linkedin} target="_blank" rel="noreferrer" className="link-quiet">
                   LinkedIn
                 </a>
               </p>
+              ) : null}
               <p>
                 <a href={social.github} target="_blank" rel="noreferrer" className="link-quiet">
                   GitHub
                 </a>
               </p>
+              {social.medium ? (
               <p>
                 <a href={social.medium} target="_blank" rel="noreferrer" className="link-quiet">
                   Medium
                 </a>
               </p>
+              ) : null}
             </div>
           </Reveal>
 
           <Reveal>
             <InquiryForm
               submitLabel="Send message"
-              subject="New contact message, kerenwangombe.com"
+              subject="New contact message, Kendi Mercy portfolio"
               fields={[
                 { name: "name", label: "Your name", required: true, placeholder: "Jane Doe" },
                 { name: "email", label: "Email", type: "email", required: true, placeholder: "you@example.com" },

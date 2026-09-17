@@ -96,7 +96,7 @@ export default function AdvisoryPage() {
           <Reveal>
             <InquiryForm
               submitLabel="Send advisory inquiry"
-              subject="New advisory inquiry, kerenwangombe.com"
+              subject="New advisory inquiry, Kendi Mercy portfolio"
             />
           </Reveal>
         </div>

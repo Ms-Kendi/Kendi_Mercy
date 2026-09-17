@@ -1,8 +1,8 @@
 {
-  "name": "keren-wangombe-portfolio",
+  "name": "kendi-mercy-portfolio",
   "version": "0.1.0",
   "private": true,
-  "description": "Keren Wang'ombe — operations & analytics portfolio",
+  "description": "Kendi Mercy — operations & analytics portfolio",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

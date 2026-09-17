@@ -33,7 +33,7 @@ export default function AboutPage() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={aboutPortrait}
-              alt="Keren Wang'ombe"
+              alt="Kendi Mercy"
               className="aspect-[4/5] w-full object-cover"
             />
           </div>
