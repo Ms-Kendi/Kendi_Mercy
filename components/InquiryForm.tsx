@@ -82,7 +82,11 @@ export default function InquiryForm({
     }
   }
 
-  if (!formSubmitAlias) {\n    return <p className={`text-body ${dark ? "text-paper/80" : "text-ink"}`} role="status">Online inquiries will be available once Kendi Mercy’s contact email is configured.</p>;\n  }\n\n  if (done) {
+  if (!formSubmitAlias) {
+    return <p className={`text-body ${dark ? "text-paper/80" : "text-ink"}`} role="status">Online inquiries will be available once Kendi Mercy’s contact email is configured.</p>;
+  }
+
+  if (done) {
     return (
       <p
         className={`text-body ${dark ? "text-amber" : "text-signature"}`}
