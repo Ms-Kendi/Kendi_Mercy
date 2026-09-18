@@ -14,10 +14,10 @@ export const profile = {
 };
 
 export const services = [
-  { number: "01", title: "Data, Metrics & Reporting", description: "Clean and organize operational data, define useful KPIs, build dashboards and establish weekly or monthly reporting rhythms that support decisions.", deliverable: "Clear data. Meaningful decisions.", icon: "data" },
-  { number: "02", title: "Process & Operations", description: "Map how work happens, clarify ownership, improve handoffs and create repeatable workflows that save time without adding unnecessary bureaucracy.", deliverable: "Less friction. Consistent delivery.", icon: "process" },
-  { number: "03", title: "Communication & Alignment", description: "Create clear leadership updates, decision logs, action trackers and cross-functional routines so strategy remains connected to execution.", deliverable: "Shared context. Clear next steps.", icon: "communication" },
-  { number: "04", title: "Tools, Automation & AI", description: "Select tools that fit the organization, automate repetitive work and apply AI and LLMs to research, documentation, analysis and operational workflows with appropriate human review.", deliverable: "Practical tools. More capacity.", icon: "automation" },
+  { number: "01", title: "Data, Metrics & Reporting", description: "Clean and organize operational data, define useful KPIs, build dashboards and establish weekly or monthly reporting rhythms that support decisions.", deliverable: "Clear data. Meaningful decisions.", tools: ["Microsoft Excel", "Google Sheets", "Reporting templates"], icon: "data" },
+  { number: "02", title: "Process & Operations", description: "Map how work happens, clarify ownership, improve handoffs and create repeatable workflows that save time without adding unnecessary bureaucracy.", deliverable: "Less friction. Consistent delivery.", tools: ["Notion", "Airtable", "Asana", "Process maps & SOPs"], icon: "process" },
+  { number: "03", title: "Communication & Alignment", description: "Create clear leadership updates, decision logs, action trackers and cross-functional routines so strategy remains connected to execution.", deliverable: "Shared context. Clear next steps.", tools: ["Slack", "Circle", "Discord", "Google Workspace", "Microsoft Office", "Notion", "Decision & action logs"], icon: "communication" },
+  { number: "04", title: "Tools, Automation & AI", description: "Select tools that fit the organization, automate repetitive work and apply AI and LLMs to research, documentation, analysis and operational workflows with appropriate human review.", deliverable: "Practical tools. More capacity.", tools: ["Airtable", "CRM & workflow platforms", "AI & LLM tools"], icon: "automation" },
 ];
 
 export const caseStudies = [
@@ -25,7 +25,8 @@ export const caseStudies = [
     id: "alx", number: "01", organization: "ALX Africa", status: "Implemented work", title: "From programme data to decisions",
     summary: "Programme-health monitoring, consistent reporting and automation for multi-country delivery at scale.",
     challenge: "Multi-country programme delivery required consistent visibility into engagement, participant health, satisfaction, retention and completion.",
-    contribution: "I organized reporting requirements, designed programme-health monitoring, standardized dashboards and established weekly and monthly reporting. I also automated data tracking and alerts so teams could identify risk earlier and spend more time on strategic work.",
+    contribution: "I organized reporting requirements, designed programme-health monitoring and established recurring reviews. In the transition to self-paced learning, I co-led the Data & Reporting workstream, translating operational needs into metric definitions and dashboard requirements with BI and data specialists. I helped standardize reporting templates and supported adoption through workshops and ongoing discussion.",
+    examples: ["Defined reporting requirements around learner health and progression, rather than carrying cohort assumptions into a different learning model.", "Investigated how learner transfers affected activation measures and worked with data stakeholders to improve reporting accuracy.", "Supported the team-generated Peer Finder initiative and its rollout with cross-functional partners to make peer matching easier."],
     outcome: "Activation improved from 62% to 71%, graduation improved from 21% to 43%, and satisfaction remained above 90%. Operational workload fell from 95% to 52%, freeing 48% of team capacity for strategic work.",
     capabilities: ["KPI design", "Programme diagnostics", "Reporting", "Automation"],
     metric: "21% → 43%", metricLabel: "Graduation improvement",
@@ -36,16 +37,18 @@ export const caseStudies = [
     challenge: "The Entrepreneur Academy needed a clearer approach to organizing data consistently across Kenya, Nigeria and South Africa while allowing for local differences.",
     contribution: "I mapped a proposed model covering required data, definitions, ownership, collection, quality checks, country-level workflows and consolidated reporting. The approach was designed to reduce duplicated work and make the process easy to replicate across markets.",
     outcome: "The proposal was not implemented before the organization’s circumstances changed. This work demonstrates solution design and multi-market process mapping; it does not claim measured implementation results.",
+    examples: [],
     capabilities: ["Data definitions", "Process mapping", "Multi-market design"],
     metric: "3 markets", metricLabel: "One proposed reporting model",
   },
   {
     id: "my-company", number: "03", organization: "Ruji Pure Waters", status: "In active use", title: "Building the operating system I use",
-    summary: "Practical operating systems for a drinking-water business that cleans, packages and refills water.",
-    challenge: "Building Ruji Pure Waters, a business that cleans, packages and refills drinking water, required practical systems for planning, customer or stakeholder information, delivery, documentation, reporting, finances and follow-up.",
-    contribution: "I designed and continue to use the company’s operational workflows and tools, improving them as the business develops. This gives me direct experience of building systems under real constraints.",
-    outcome: "The systems provide visibility, reduce missed actions, standardize recurring work and create a foundation for growth.",
-    capabilities: ["Planning", "Documentation", "Delivery workflows", "Follow-up"],
+    summary: "Connected sales, payments, customer and bottle-inventory records for the drinking-water business I run.",
+    challenge: "Running a drinking-water business requires a reliable way to connect repeat purchases, payments, bottle stock and customer follow-up while keeping daily work manageable.",
+    contribution: "I connect sales, payment tracking, customer records and bottle inventory in Google Sheets. The workbook uses reusable customer IDs, calculated prices, payment balances and stock movements to keep recurring work organized. I also document production workflows and customer follow-up procedures, improving the tools as the business develops.",
+    examples: ["A sales-entry workflow feeds payment tracking and a customer relationship list, reducing the need to maintain separate records.", "Bottle inventory distinguishes new-bottle sales from refills and flags when stock reaches a reorder level.", "Production-flow documentation, a complaint-register template and a recall procedure provide a structure for traceability, investigation and follow-up."],
+    outcome: "The workbook is in active use, giving me a practical view of sales, balances, customer relationships and bottle stock. The supporting documents define repeatable steps for production and follow-up.",
+    capabilities: ["Google Sheets", "Sales & payment tracking", "Inventory", "Process documentation"],
     metric: "Built & used", metricLabel: "Systems shaped by daily work",
   },
 ];

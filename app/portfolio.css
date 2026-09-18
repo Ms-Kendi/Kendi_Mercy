@@ -359,3 +359,11 @@ h1 em,h2 em { font-weight:500; color:var(--accent); }
  .contact-links strong { font-size:19px; }
  .footer-inner>div { gap:18px; }
 }
+
+/* Tools grouped by service, with readable labels on every screen. */
+.service-tools { margin:0 0 24px; }
+.service-tools h4 { font-size:13px; font-weight:600; color:var(--navy); margin:0 0 10px; }
+.service-tools ul { display:flex; flex-wrap:wrap; gap:7px; list-style:none; padding:0; margin:0; }
+.service-tools li { font-size:13px; line-height:1.5; padding:5px 9px; color:var(--navy); background:#18315308; border:1px solid #18315314; border-radius:4px; }
+.case-examples { padding-left:20px; margin-top:10px; color:var(--muted); font-size:16px; line-height:1.75; }
+.case-examples li + li { margin-top:12px; }
