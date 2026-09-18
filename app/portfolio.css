@@ -288,3 +288,11 @@ h1 em,h2 em { font-weight:500; color:var(--accent); }
 }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
 @media print { .portfolio-header,.portfolio-footer,.hero-actions,.contact-section { display:none; } .portfolio-section { padding-block:25px; } .portfolio-container { padding-inline:0; } .case-grid,.section-heading,.about-grid,.resume-grid { display:block; } .case-card { break-inside:avoid; margin-bottom:20px; } }
+
+/* Full-name branding in the header and hero. */
+.wordmark-full-name { font-family:var(--font-serif),Georgia,serif; font-size:25px; font-weight:500; line-height:1.2; letter-spacing:-.035em; white-space:nowrap; }
+.portrait-full-name { font-family:var(--font-serif),Georgia,serif; font-size:clamp(42px,5vw,68px); font-weight:500; line-height:1.12; letter-spacing:-.035em; color:var(--ivory); position:relative; margin-bottom:65px; text-align:center; }
+.portrait-full-name>span { display:block; }
+@media (max-width:1100px) { .wordmark-full-name { font-size:22px; } }
+@media (max-width:760px) { .wordmark-full-name { font-size:25px; } .portrait-full-name { font-size:62px; } }
+@media (max-width:390px) { .wordmark-full-name { font-size:23px; } .portrait-full-name { font-size:56px; } }

@@ -49,7 +49,7 @@ export default function Home() {
           <div className="portrait-frame">
             <span className="portrait-corner corner-top" aria-hidden="true" /><span className="portrait-corner corner-bottom" aria-hidden="true" />
             <div className="portrait-grid" aria-hidden="true" /><span className="portrait-circle" aria-hidden="true" />
-            <span className="portrait-initials" aria-hidden="true">{profile.initials}<span>.</span></span>
+            <span className="portrait-full-name" aria-hidden="true">{profile.name.split(" ").map((name) => <span key={name}>{name}</span>)}</span>
             <div className="portrait-caption"><span>{profile.name}</span><span>{profile.title}<br />{profile.focus}</span></div>
           </div>
           <p className="portrait-note">From strategy to systems.<br />From information to action.</p>

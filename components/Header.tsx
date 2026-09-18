@@ -18,8 +18,7 @@ export default function Header() {
     <header className="portfolio-header">
       <div className="portfolio-container header-inner">
         <Link href="/" className="wordmark" aria-label={`${profile.name}, home`} onClick={() => setOpen(false)}>
-          <span className="monogram">{profile.initials}<span>.</span></span>
-          <span className="wordmark-name">{profile.name}</span>
+          <span className="wordmark-full-name">{profile.name}</span>
         </Link>
         <nav aria-label="Main navigation" className="desktop-nav">
           {links.map((link) => <Link key={link.href} href={link.href}>{link.label}</Link>)}
