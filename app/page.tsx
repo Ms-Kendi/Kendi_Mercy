@@ -1,166 +1,96 @@
-import type { Metadata } from "next";
-import type { ReactNode } from "react";
-import Button from "@/components/Button";
-import Reveal from "@/components/Reveal";
-import EmailCapture from "@/components/EmailCapture";
-import { brand } from "@/lib/site";
-import { organisations, services, outcomes, type Service } from "@/lib/content";
+import Link from "next/link";
+import { profile, services, caseStudies, method, engagements, experience, tools } from "@/lib/portfolio";
 
-export const metadata: Metadata = {
-  title: "Operations that scale",
-  description:
-    "Programme operations and analytics: automation, tracking, and reporting systems built around the operational decision inside every workflow, not just the tooling.",
-};
+function Arrow() { return <span aria-hidden="true">↗</span>; }
 
-/** Line icons for the What I Do grid, keyed to Service.icon. */
-const serviceIcon: Record<Service["icon"], ReactNode> = {
-  process: (
-    <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current" strokeWidth="1.6" aria-hidden>
-      <rect x="3" y="4" width="6" height="5" rx="1.2" />
-      <rect x="15" y="15" width="6" height="5" rx="1.2" />
-      <path d="M9 6.5h4a2 2 0 0 1 2 2v9" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  ),
-  team: (
-    <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current" strokeWidth="1.6" aria-hidden>
-      <circle cx="9" cy="8" r="3" />
-      <path d="M3.5 19a5.5 5.5 0 0 1 11 0" strokeLinecap="round" />
-      <path d="M16 6.2a3 3 0 0 1 0 5.6M17 14.4a5.5 5.5 0 0 1 3.5 4.6" strokeLinecap="round" />
-    </svg>
-  ),
-  systems: (
-    <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current" strokeWidth="1.6" aria-hidden>
-      <circle cx="12" cy="12" r="3" />
-      <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" strokeLinecap="round" />
-    </svg>
-  ),
-  reporting: (
-    <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current" strokeWidth="1.6" aria-hidden>
-      <path d="M4 3v18h16" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M8 15v-3M12 15V8M16 15v-5" strokeLinecap="round" />
-    </svg>
-  ),
-};
+function ServiceIcon({ type }: { type: string }) {
+  return <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
+    {type === "data" ? <><path d="M5 26V6M5 26h23M11 22v-7M18 22V9M25 22V4" /><circle cx="11" cy="11" r="1.5" /></> :
+      type === "process" ? <><rect x="3" y="4" width="10" height="8" rx="2" /><rect x="19" y="20" width="10" height="8" rx="2" /><path d="M13 8h11v12M8 12v12h11M21 17l3 3 3-3" /></> :
+      type === "communication" ? <><path d="M5 5h22v17H15l-7 5v-5H5zM10 11h12M10 16h8" /></> :
+      <><path d="m18 3-11 15h8l-1 11 11-16h-8z" /></>}
+  </svg>;
+}
 
-export default function HomePage() {
+function WorkVisual({ id }: { id: string }) {
+  if (id === "alx") return <div className="work-visual alx-visual" aria-label="Illustration of programme-health reporting, with on-track, at-risk and stalled categories">
+    <div className="visual-topline"><span>PROGRAMME HEALTH</span><span>● Weekly review</span></div>
+    <div className="health-categories"><span><i />On track</span><span><i />At risk</span><span><i />Stalled</span></div>
+    <div className="chart-bars" aria-hidden="true">{[35, 49, 43, 61, 56, 74, 67, 88, 80, 96].map((h, i) => <span key={i} style={{ height: `${h}%` }} />)}</div>
+    <div className="visual-bottomline"><span>VISIBILITY → INTERVENTION</span><span>Illustrative</span></div>
+  </div>;
+  if (id === "founders-factory") return <div className="work-visual market-visual" aria-label="Illustration of Kenya, Nigeria and South Africa feeding into shared definitions and consolidated reporting">
+    <div className="visual-topline"><span>MULTI-MARKET MODEL</span><span>Proposed</span></div>
+    <div className="market-nodes"><span>Kenya</span><span>Nigeria</span><span>South Africa</span></div>
+    <div className="market-connectors" aria-hidden="true" />
+    <div className="shared-model">Shared definitions · Local workflows</div>
+    <div className="report-model">Consolidated reporting</div>
+  </div>;
+  return <div className="work-visual company-visual" aria-label="Illustration of an operating workflow from planning to delivery, review and follow-up">
+    <div className="visual-topline"><span>THE EVERYDAY OPERATING SYSTEM</span><span>In use</span></div>
+    <div className="workflow-list">{["Plan & prioritize", "Deliver & document", "Review & follow up"].map((label, i) => <div key={label}><span>0{i + 1}</span>{label}<span aria-hidden="true">{i === 2 ? "↺" : "↓"}</span></div>)}</div>
+  </div>;
+}
+
+export default function Home() {
   return (
     <>
-      {/* ── HERO — light split: copy left, systems illustration right. */}
-      <section className="border-b border-ink/5 bg-background">
-        <div className="container-content grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-24">
-          <div className="animate-fade-up">
-            <p className="kicker text-amber">Programme Operations · Nairobi, Kenya</p>
-            <h1 className="mt-6 font-serif text-h1 font-light leading-[1.08] text-ink">
-              I build systems that bring{" "}
-              <span className="text-amber">clarity</span> to complexity.
-            </h1>
-            <p className="mt-7 max-w-xl text-body text-ink/70">{brand.oneLine}</p>
-            <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
-              <Button href="/contact" variant="accent">
-                Let&rsquo;s work together
-              </Button>
-              <a
-                href="/work"
-                className="link-amber inline-flex items-center gap-2 text-small font-medium text-signature"
-              >
-                View my work
-                <span aria-hidden>→</span>
-              </a>
-            </div>
+      <section className="hero-section portfolio-container" aria-labelledby="hero-heading">
+        <div className="hero-copy">
+          <p className="eyebrow"><span className="eyebrow-line" />Operations · Data · Strategy</p>
+          <p className="hero-name">{profile.name} <span>/{profile.location}</span></p>
+          <h1 id="hero-heading">Clear systems.<br />Meaningful metrics.<br /><em>Strategy in motion.</em></h1>
+          <p className="hero-description">{profile.headline}</p>
+          <p className="hero-support">{profile.introduction}</p>
+          <div className="hero-actions"><a className="button-primary" href="#work">View selected work <Arrow /></a><a className="button-secondary" href={profile.resume} download>Download résumé <span aria-hidden="true">↓</span></a></div>
+          <a className="hero-contact" href="#contact">Have a challenge in mind? Let’s talk <Arrow /></a>
+        </div>
+        <div className="hero-portrait">
+          <div className="portrait-frame">
+            <span className="portrait-corner corner-top" aria-hidden="true" /><span className="portrait-corner corner-bottom" aria-hidden="true" />
+            <div className="portrait-grid" aria-hidden="true" /><span className="portrait-circle" aria-hidden="true" />
+            <span className="portrait-initials" aria-hidden="true">{profile.initials}<span>.</span></span>
+            <div className="portrait-caption"><span>{profile.name}</span><span>{profile.title}<br />{profile.focus}</span></div>
           </div>
-          <Reveal className="order-first lg:order-none">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/illustrations/hero-systems.svg"
-              alt="An operations dashboard: kanban board, key metrics, and a delivery trend chart"
-              className="w-full"
-            />
-          </Reveal>
+          <p className="portrait-note">From strategy to systems.<br />From information to action.</p>
         </div>
       </section>
 
-      {/* ── TRUSTED BY — navy band with organisations. */}
-      <section className="bg-signature">
-        <div className="container-content py-10 sm:py-12">
-          <p className="kicker text-center text-paper/55">Trusted by founders &amp; teams</p>
-          <ul className="mt-7 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 sm:gap-x-14">
-            {organisations.map((org) => (
-              <li key={org} className="font-serif text-lg font-medium text-paper/90">
-                {org}
-              </li>
-            ))}
-          </ul>
+      <section className="proof-section" aria-label="Selected programme outcomes">
+        <div className="portfolio-container proof-grid">
+          <div><strong>60,000<span>+</span></strong><p>Participants supported annually</p></div>
+          <div><strong>21% <span>→</span> 43%</strong><p>Graduation improvement</p></div>
+          <div><strong>62% <span>→</span> 71%</strong><p>Activation improvement</p></div>
+          <div><strong>90%<span>+</span></strong><p>Customer satisfaction</p></div>
+          <div><strong>48<span>%</span></strong><p>Team capacity freed for strategic work</p></div>
         </div>
+        <p className="proof-context portfolio-container">Selected outcomes from programme operations at ALX Africa.</p>
       </section>
 
-      {/* ── WHAT I DO — four-column grid. */}
-      <section className="container-content py-16 sm:py-24">
-        <Reveal>
-          <p className="kicker text-blue-lift">What I do</p>
-          <h2 className="mt-4 max-w-2xl font-serif text-h2 font-light leading-snug text-ink">
-            Turning operational chaos into scalable systems.
-          </h2>
-        </Reveal>
-        <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((s, i) => (
-            <Reveal as="div" key={s.title} delay={i * 100} className="flex h-full flex-col bg-paper p-8">
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-amber/10 text-amber">
-                {serviceIcon[s.icon]}
-              </span>
-              <h3 className="mt-5 font-serif text-xl font-medium text-ink">{s.title}</h3>
-              <p className="mt-3 text-small text-ink/70">{s.body}</p>
-            </Reveal>
-          ))}
-        </div>
+      <section id="services" className="portfolio-section portfolio-container" aria-labelledby="services-heading">
+        <div className="section-heading"><div><p className="eyebrow">01 / What I do</p><h2 id="services-heading">Make the work<br /><em>work better.</em></h2></div><p>I work across operations, reporting, process improvement, communication, automation and AI-enabled workflows, from simple systems for SMEs to structured solutions for multi-market organizations.</p></div>
+        <div className="services-grid">{services.map((service) => <article className="service-card" key={service.number}><div className="service-top"><ServiceIcon type={service.icon} /><span>{service.number}</span></div><h3>{service.title}</h3><p>{service.description}</p><div className="service-deliverable">{service.deliverable}</div></article>)}</div>
+        <div className="audience-note"><span className="small-label">BUILT FOR YOUR CONTEXT</span><p>For SMEs and startups, I favour simple, affordable systems teams can maintain. For larger organizations, I support structured reporting, cross-functional workflows, governance, integrations and automation.</p></div>
       </section>
 
-      {/* ── IMPACT — navy band with the headline metrics. */}
-      <section className="bg-signature">
-        <div className="container-content py-16 sm:py-20">
-          <Reveal>
-            <p className="kicker text-amber">Impact</p>
-            <h2 className="mt-5 max-w-xl font-serif text-h1 font-light text-paper">
-              Results measured, not claimed.
-            </h2>
-          </Reveal>
-          <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-            {outcomes.map((o, i) => (
-              <Reveal as="div" key={o.metricLabel} delay={i * 100}>
-                <p
-                  className={`font-serif text-display font-light leading-none ${
-                    i === 0 ? "text-amber" : "text-paper"
-                  }`}
-                >
-                  {o.metric}
-                </p>
-                <p className="mt-3 text-small text-paper/65">{o.metricLabel}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
+      <section id="work" className="work-section portfolio-section" aria-labelledby="work-heading"><div className="portfolio-container">
+        <div className="section-heading"><div><p className="eyebrow">02 / Selected work</p><h2 id="work-heading">Real challenges.<br /><em>Practical responses.</em></h2></div><p>A closer look at the problems, approaches and outcomes behind the work. Implemented systems, proposed models and the tools I use myself.</p></div>
+        <div className="case-grid">{caseStudies.map((study) => <article key={study.id} className="case-card"><WorkVisual id={study.id} /><div className="case-content"><div className="case-meta"><span>{study.organization}</span><span className={`status-tag ${study.id === "founders-factory" ? "proposed" : ""}`}>{study.status}</span></div><h3>{study.title}</h3><p>{study.summary}</p><div className="case-metric"><strong>{study.metric}</strong><span>{study.metricLabel}</span></div><details className="case-details"><summary>Explore the case study <span className="details-plus" aria-hidden="true">+</span></summary><div><h4>Challenge</h4><p>{study.challenge}</p><h4>My contribution</h4><p>{study.contribution}</p><h4>{study.id === "founders-factory" ? "Status & scope" : "Outcome"}</h4><p>{study.outcome}</p><div className="capability-tags">{study.capabilities.map((item) => <span key={item}>{item}</span>)}</div><a href="#resume">View professional experience <Arrow /></a></div></details></div></article>)}</div>
+      </div></section>
+
+      <section id="approach" className="portfolio-section portfolio-container" aria-labelledby="approach-heading">
+        <div className="section-heading"><div><p className="eyebrow">03 / How I work</p><h2 id="approach-heading">Understand first.<br /><em>Build for real use.</em></h2></div><p>A system only creates value when people can use it. My approach connects the objective to the everyday decisions, tools and habits that make progress possible.</p></div>
+        <ol className="method-grid">{method.map((step, i) => <li key={step.title}><span className="method-number">0{i + 1}</span><h3>{step.title}</h3><p>{step.description}</p></li>)}</ol>
+        <div className="engagement-panel"><div><p className="eyebrow">Ways to work together</p><h3>The right support<br />for the next step.</h3><a href="#contact">Discuss your challenge <Arrow /></a></div><ul>{engagements.map((item) => <li key={item}><span aria-hidden="true">↗</span>{item}</li>)}</ul></div>
       </section>
 
-      {/* ── CLOSE — quiet CTA + email capture. */}
-      <section className="container-content py-20 sm:py-28">
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
-          <Reveal>
-            <h2 className="max-w-xl font-serif text-h1 font-light text-ink">
-              Looking for someone who builds the systems, not just runs them?
-            </h2>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button href="/contact" variant="accent">
-                Get in touch
-              </Button>
-              <Button href="/work" variant="ghost">
-                See the work
-              </Button>
-            </div>
-          </Reveal>
-          <Reveal className="lg:pt-2">
-            <EmailCapture />
-          </Reveal>
-        </div>
+      <section id="about" className="about-section portfolio-section" aria-labelledby="about-heading"><div className="portfolio-container about-grid"><div><p className="eyebrow">04 / About</p><h2 id="about-heading">At the intersection<br />of strategy<br /><em>and execution.</em></h2><p className="about-signature">{profile.name}<span>{profile.title}</span></p></div><div className="about-copy"><p>I enjoy taking information that is scattered, unclear or difficult to manage and turning it into processes, reporting systems and tools that people can use consistently.</p><p>My experience spans large-scale multi-country programme operations, performance reporting, startup and SME environments, multi-market process design, and building my own company.</p><p>I combine operational rigour with an understanding of people, communication and adoption, because a system only creates value when teams can use it.</p><div className="toolkit"><h3>Tools I work with</h3><div>{tools.map((tool) => <span key={tool}>{tool}</span>)}</div></div></div></div></section>
+
+      <section id="resume" className="portfolio-section portfolio-container" aria-labelledby="resume-heading"><div className="section-heading"><div><p className="eyebrow">05 / Résumé</p><h2 id="resume-heading">The experience<br /><em>behind the approach.</em></h2></div><div><p>3+ years managing large-scale, multi-country initiatives across Africa. Programme health, recurring reporting, workflow automation and cross-functional execution.</p><a className="button-secondary resume-download" href={profile.resume} download>Download full résumé <span aria-hidden="true">↓</span></a></div></div>
+        <div className="resume-grid"><div className="experience-list">{experience.map((job) => <article key={job.role}><div className="job-meta"><span>{job.company}</span><span>{job.dates}</span></div><h3>{job.role}</h3><p>{job.summary}</p></article>)}<a className="text-link" href="#work">Explore selected case studies <Arrow /></a></div><aside className="education-panel"><p className="small-label">EDUCATION & CERTIFICATIONS</p><h3>BSc Industrial Chemistry</h3><p>University of Embu · 2019</p><ul><li><strong>Data Analytics Certificate</strong><span>ALX Africa · 2025</span></li><li><strong>McKinsey Forward Program</strong><span>McKinsey & Company · 2023</span></li><li><strong>Human Capital Management</strong><span>Corporate Finance Institute · 2023</span></li><li><strong>Leading High-Performing Teams</strong><span>Corporate Finance Institute · 2023</span></li></ul></aside></div>
       </section>
+
+      <section id="contact" className="contact-section portfolio-section" aria-labelledby="contact-heading"><div className="portfolio-container contact-grid"><div><p className="eyebrow">06 / Let’s talk</p><h2 id="contact-heading">What could<br /><em>work better?</em></h2><p>If you need help organizing operational data, identifying the metrics that matter, improving processes or turning recommendations into an implementation system, I would be glad to discuss the challenge.</p><a className="button-amber" href={`mailto:${profile.email}?subject=Let%27s%20discuss%20an%20operations%20challenge`}>Start a conversation <Arrow /></a></div><div className="contact-links"><a href={`mailto:${profile.email}`}><span>Email</span><strong>{profile.email}</strong><Arrow /></a><a href="tel:+254790149924"><span>Phone</span><strong>{profile.phone}</strong><Arrow /></a><a href={profile.linkedin} target="_blank" rel="noreferrer"><span>Connect</span><strong>LinkedIn</strong><Arrow /></a><div><span>Based in</span><strong>{profile.location}</strong></div><p>Supporting teams across Africa and beyond.</p></div></div></section>
     </>
   );
 }

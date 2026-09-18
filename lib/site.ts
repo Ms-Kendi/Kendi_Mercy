@@ -60,20 +60,20 @@ export const nav: NavItem[] = [
 ];
 
 /** Primary contact email, shown for general inquiries and booking. */
-export const contactEmail = "";
+export const contactEmail = "mercykendi501@gmail.com";
 
 /** Contact email for privacy-specific requests (Privacy + Cookie policies). */
-export const privacyEmail = "";
+export const privacyEmail = "mercykendi501@gmail.com";
 
 /**
  * Destination the contact/inquiry forms submit to. The form UI validates and
  * reflects state but does not POST yet (see the TODO(integration) handlers);
  * wire this to a provider (FormSubmit, Supabase, email, CRM) at launch.
  */
-export const formSubmitAlias = "";
+export const formSubmitAlias = "mercykendi501@gmail.com";
 
 export const social = {
-  linkedin: "",
+  linkedin: "https://www.linkedin.com/in/mercykendi",
   github: "https://github.com/Ms-Kendi",
   medium: "",
 } as const;

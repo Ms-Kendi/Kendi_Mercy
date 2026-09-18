@@ -1,24 +1,5 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import Reveal from "@/components/Reveal";
-import Downloads from "@/components/Downloads";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Downloads",
-  description: "Resume, SOP templates, and reference material, free to download.",
-};
-
-export default function DownloadsPage() {
-  return (
-    <div className="container-content py-20 sm:py-28">
-      <Reveal>
-        <Link href="/resources" className="link-quiet text-small">
-          ← Back to the library
-        </Link>
-      </Reveal>
-      <div className="mt-8 sm:mt-10">
-        <Downloads />
-      </div>
-    </div>
-  );
+export default function Page() {
+  redirect("/#work");
 }
