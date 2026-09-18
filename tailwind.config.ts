@@ -4,8 +4,8 @@ import type { Config } from "tailwindcss";
  * Design system — the brand's 7-core color system (navy · ivory · amber).
  * Reference colors semantically (background, foreground, primary, link, accent);
  * the raw token names exist for the rare case a literal hex name reads clearer.
- * Amber splits by use: `amber` (#B45309) for text/labels/rules (AA on paper),
- * `amber-bright` (#D97706) for solid fills / icons / CTAs with dark text on top.
+ * Amber splits by use: `amber` (#A65332) for text/labels/rules (AA on paper),
+ * `amber-bright` (#C88566) for solid fills / icons / CTAs with dark text on top.
  * Do NOT introduce colors outside this set.
  */
 const config: Config = {
@@ -19,25 +19,25 @@ const config: Config = {
       colors: {
         // Raw tokens (exact hex from the brand color system — 7 core colors)
         ink: "#111827", // Headline / near-black — TEXT/contrast + dark surfaces
-        signature: "#1B3A6B", // Primary navy — the brand heart, deep + calm
-        "blue-lift": "#3D6491", // lighter navy — interactive/links only
-        paper: "#FAFAF8", // background — soft off-white, never pure white
-        amber: "#B45309", // warm accent for TEXT/labels/rules — AA on paper
-        "amber-bright": "#D97706", // warm accent for FILLS/icons/CTAs (dark text on top)
-        body: "#4B5563", // Body text — muted slate
+        signature: "#183153", // Primary navy — the brand heart, deep + calm
+        "blue-lift": "#294969", // lighter navy — interactive/links only
+        paper: "#F7F4EE", // background — soft off-white, never pure white
+        amber: "#A65332", // warm accent for TEXT/labels/rules — AA on paper
+        "amber-bright": "#C88566", // warm accent for FILLS/icons/CTAs (dark text on top)
+        body: "#374151", // Body text — muted slate
         hairline: "#E5E7EB", // Border — quiet hairlines
 
         // Semantic aliases
-        background: "#FAFAF8",
+        background: "#F7F4EE",
         foreground: "#111827",
         primary: {
-          DEFAULT: "#1B3A6B",
-          foreground: "#FAFAF8",
+          DEFAULT: "#183153",
+          foreground: "#F7F4EE",
         },
-        link: "#3D6491",
+        link: "#294969",
         accent: {
-          DEFAULT: "#B45309",
-          foreground: "#FAFAF8",
+          DEFAULT: "#A65332",
+          foreground: "#F7F4EE",
         },
       },
       fontFamily: {

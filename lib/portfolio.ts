@@ -61,7 +61,8 @@ export const method = [
 export const engagements = ["Operational and data diagnostic", "KPI and management-reporting framework", "Dashboard and recurring reporting setup", "Process mapping and improvement", "Strategy-to-execution support", "Tool, automation and AI workflow assessment", "Fractional or ongoing advisory-operations support"];
 
 export const experience = [
-  { role: "Delivery Ops & Intelligence Manager", company: "ALX Africa", dates: "Jan 2025–Present", summary: "Lead multi-country programme operations serving 60,000+ participants annually, with a focus on programme health, performance reporting and strategic execution." },
+  { role: "Delivery Ops & Intelligence Manager", company: "ALX Africa", dates: "Aug 2026–Present", summary: "Current role at ALX Africa." },
+  { role: "Program Manager — Professional Foundations", company: "ALX Africa", dates: "Jan 2025–Jul 2026", summary: "Lead multi-country programme operations serving 60,000+ participants annually, with a focus on programme health, performance reporting and strategic execution." },
   { role: "Program Operations Lead", company: "ALX Africa", dates: "Aug 2023–Dec 2024", summary: "Coordinated recruitment, onboarding, delivery and reporting, with structured engagement flows and recurring performance reviews." },
 ];
 
